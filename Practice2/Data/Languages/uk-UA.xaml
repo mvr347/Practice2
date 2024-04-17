@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="settings_language">Мова</v:String>
+    <v:String x:Key="settings_theme">Тема</v:String>
+    <v:String x:Key="auth_login">Логін</v:String>
+    <v:String x:Key="auth_registration">Реєстрація</v:String>
+    <v:String x:Key="auth_password">Пароль</v:String>
+    <v:String x:Key="auth_confirmpassword">Підтвердження паролю</v:String>
+    <v:String x:Key="auth_noaccount">Якщо немає аккаунту:</v:String>
+    <v:String x:Key="auth_createaccount">Створіть аккаунт</v:String>
+    <v:String x:Key="auth_haveaccount">Вже маєте аккаунт:</v:String>
+    <v:String x:Key="auth_loginaccount">Вхід</v:String>
+    <v:String x:Key="btn_Enter">Далі</v:String>
+</ResourceDictionary>

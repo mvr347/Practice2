@@ -1,0 +1,123 @@
+﻿<hc:Window
+    x:Class="Practice2.Authorization"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Practice2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Програма управління для ОСББ"
+    Width="780"
+    Height="470"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+    <hc:Window.NonClientAreaContent>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button
+                Name="ButtonLanguage"
+                Grid.Column="1"
+                Margin="190,0,0,0"
+                HorizontalAlignment="Stretch"
+                hc:IconElement.Geometry="{StaticResource PageModeGeometry}"
+                Click="btnLangClick"
+                Foreground="{DynamicResource PrimaryTextBrush}"
+                Style="{StaticResource ButtonIcon}" />
+            <Popup
+                Name="PopupLanguage"
+                Grid.Column="1"
+                AllowsTransparency="True"
+                HorizontalOffset="-25"
+                PlacementTarget="{Binding ElementName=ButtonLanguage}"
+                StaysOpen="False"
+                VerticalOffset="6">
+                <Border
+                    Margin="16"
+                    Background="{DynamicResource SecondaryRegionBrush}"
+                    CornerRadius="4"
+                    Effect="{StaticResource EffectShadow2}">
+                    <StackPanel Button.Click="btnLangClick">
+                        <hc:Divider
+                            Width="200"
+                            Margin="0,10"
+                            Content="{DynamicResource settings_language}" />
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <hc:ButtonGroup Orientation="Horizontal" Style="{StaticResource ButtonGroupSolid}">
+                                <RadioButton
+                                    x:Name="rbLangUkrainian"
+                                    Click="btnLangChoiseClick"
+                                    Content="UKR" />
+                                <RadioButton
+                                    x:Name="rbLangEnglish"
+                                    Click="btnLangChoiseClick"
+                                    Content="ENG" />
+                            </hc:ButtonGroup>
+                        </StackPanel>
+
+                        <hc:Divider Width="200" Margin="0,10" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+            <Button
+                Name="ButtonConfig"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                hc:IconElement.Geometry="{StaticResource ConfigGeometry}"
+                Click="btnConfigClick"
+                Foreground="{DynamicResource PrimaryTextBrush}"
+                Style="{StaticResource ButtonIcon}" />
+            <Popup
+                Name="PopupConfig"
+                Grid.Column="1"
+                AllowsTransparency="True"
+                HorizontalOffset="-125"
+                PlacementTarget="{Binding ElementName=ButtonConfig}"
+                StaysOpen="False"
+                VerticalOffset="6">
+                <Border
+                    Margin="16"
+                    Background="{DynamicResource SecondaryRegionBrush}"
+                    CornerRadius="4"
+                    Effect="{StaticResource EffectShadow2}">
+                    <StackPanel Button.Click="btnSkinsClick">
+                        <hc:Divider
+                            Width="200"
+                            Margin="0,10"
+                            Content="{DynamicResource settings_theme}" />
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button Style="{StaticResource ButtonCustom}" Tag="{x:Static hc:ApplicationTheme.Light}">
+                                <Border
+                                    Width="32"
+                                    Height="21"
+                                    Background="White"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="2" />
+                            </Button>
+                            <Button
+                                Margin="10,0,0,0"
+                                Style="{StaticResource ButtonCustom}"
+                                Tag="{x:Static hc:ApplicationTheme.Dark}">
+                                <Border
+                                    Width="32"
+                                    Height="21"
+                                    Background="Black"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="2" />
+                            </Button>
+                        </StackPanel>
+                        <hc:Divider Width="200" Margin="0,10" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
+    </hc:Window.NonClientAreaContent>
+    <DockPanel>
+        <Frame x:Name="AuthorizationMainFrame" NavigationUIVisibility="Hidden" />
+    </DockPanel>
+</hc:Window>

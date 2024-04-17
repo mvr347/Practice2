@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Practice2.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Practice2.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Login"
+    d:DesignHeight="470"
+    d:DesignWidth="780"
+    mc:Ignorable="d">
+    <Grid>
+        <Border>
+            <hc:UniformSpacingPanel Orientation="Vertical" Spacing="10">
+                <hc:TextBox
+                    Margin="10,71,390,321"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    IsReadOnly="True"
+                    Text="{DynamicResource auth_login}"
+                    TextAlignment="Center" />
+                <hc:TextBox
+                    Margin="75,-290,455,711"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    FontSize="12"
+                    IsReadOnly="True"
+                    Text="{DynamicResource auth_login}"
+                    TextAlignment="Left" />
+                <hc:TextBox
+                    Margin="75,-683,455,1104"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    FontSize="12"
+                    IsReadOnly="True"
+                    Text="{DynamicResource auth_password}"
+                    TextAlignment="Left" />
+                <hc:TextBox
+                    x:Name="logUsername"
+                    Margin="75,-1175,455,1597"
+                    MaxLength="15" />
+                <hc:PasswordBox
+                    x:Name="logPassword"
+                    Margin="75,-1569,455,1991"
+                    MaxLength="15"
+                    ShowEyeButton="True" />
+                <Button
+                    x:Name="btnEnter"
+                    Margin="115,-1921,495,2343"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Click="Login"
+                    Content="{DynamicResource btn_Enter}" />
+                <TextBlock Margin="75,-2456,455,2457" TextAlignment="Center">
+                    <Run Text="{DynamicResource auth_noaccount}" />
+                    <Hyperlink Click="hplCreateAccount">
+                        <Run Text="{DynamicResource auth_createaccount}" />
+                    </Hyperlink>
+                </TextBlock>
+
+                <Image
+                    Margin="390,-2767,-1,2297"
+                    RenderTransformOrigin="0.5,0.5"
+                    Source="/Pages/image_2024-04-10_19-58-59.png"
+                    Stretch="UniformToFill">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/Pages/image_2024-04-10_19-58-59.png" Stretch="Fill" />
+                    </Image.OpacityMask>
+                </Image>
+            </hc:UniformSpacingPanel>
+        </Border>
+    </Grid>
+</Page>
