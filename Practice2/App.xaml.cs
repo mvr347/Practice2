@@ -1,7 +1,6 @@
 ﻿using HandyControl.Themes;
 using Practice2.Data.Entity;
 using Practice2.Data.JsonData;
-using Practice2.Pages;
 using Practice2.Properties;
 using System;
 using System.Collections.Generic;
@@ -16,10 +15,8 @@ namespace Practice2
     {
         public static User user = new User();
 
-        public static readonly LoginPage loginPage = new LoginPage();
-        public static readonly RegistrationPage registrationPage = new RegistrationPage();
-
         private static List<CultureInfo> _availableLanguages = new List<CultureInfo>();
+
         public App()
         {
             _availableLanguages.Clear();
@@ -57,7 +54,7 @@ namespace Practice2
                 if (value == null) throw new ArgumentNullException("value");
                 if (value == System.Threading.Thread.CurrentThread.CurrentUICulture) return;
                 System.Threading.Thread.CurrentThread.CurrentUICulture = value;
-                Data.Handler.ChangeMergedDictionaries(@"\Data\Languages\", String.Format(@"\Data\Languages\{0}.xaml", value.Name));
+                Data.DataHandler.ChangeMergedDictionaries(@"\Data\Languages\", String.Format(@"\Data\Languages\{0}.xaml", value.Name));
                 Settings.Default.DefaultLanguage = Language;
                 Settings.Default.Save();
             }

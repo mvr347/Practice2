@@ -1,4 +1,5 @@
 ﻿using HandyControl.Themes;
+using System;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,7 +16,9 @@ namespace Practice2
             InitializeComponent();
 
             TheMainFrame = AuthorizationMainFrame;
-            AuthorizationMainFrame.Navigate(App.registrationPage);
+
+
+            AuthorizationMainFrame.Navigate(new Uri("Pages/RegistrationPage.xaml", UriKind.Relative));
 
             CultureInfo currentLangauge = App.Language;
 
@@ -25,32 +28,32 @@ namespace Practice2
                 radioButton.Content = lang.DisplayName;
                 radioButton.Tag = lang;
                 radioButton.IsChecked = lang.Equals(currentLangauge);
-                radioButton.Checked += btnLangChoiseClick;
+                radioButton.Checked += RadioButtonLanguageClick;
             }
         }
 
-
         #region Change Language
-        private async void btnLangClick(object sender, RoutedEventArgs e)
+        private async void ButtonLanguageClick(object sender, RoutedEventArgs e)
         {
 
             CultureInfo currentLangauge = App.Language;
 
+            if (RadioButtonbEnglish.IsChecked != true && RadioButtonUkrainian.IsChecked != true) RadioButtonbEnglish.IsChecked = true;
+
+            RadioButtonbEnglish.IsChecked = true;
+
             await Task.Delay(130);
 
-            if (currentLangauge.Name == "en-US")
+            if (currentLangauge.Name == "uk-UA")
             {
-                rbLangEnglish.IsChecked = true;
+                RadioButtonUkrainian.IsChecked = true;
             }
-            else if (currentLangauge.Name == "uk-UA")
-            {
-                rbLangUkrainian.IsChecked = true;
-            }
+            else { RadioButtonbEnglish.IsChecked = true; }
 
             PopupLanguage.IsOpen = true;
         }
 
-        private void btnLangChoiseClick(object sender, RoutedEventArgs e)
+        private void RadioButtonLanguageClick(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource is RadioButton radioButton)
             {
@@ -69,13 +72,13 @@ namespace Practice2
         }
         #endregion
         #region Change Theme
-        private void btnConfigClick(object sender, RoutedEventArgs e) => PopupConfig.IsOpen = true;
+        private void ButtonThemeClick(object sender, RoutedEventArgs e) => PopupTheme.IsOpen = true;
 
-        private void btnSkinsClick(object sender, RoutedEventArgs e)
+        private void ThemeSelected(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource is Button button)
             {
-                PopupConfig.IsOpen = false;
+                PopupTheme.IsOpen = false;
 
                 if (button.Tag is ApplicationTheme tag)
                 {

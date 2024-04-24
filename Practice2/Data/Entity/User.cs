@@ -2,6 +2,7 @@
 
 namespace Practice2.Data.Entity
 {
+    using BCrypt.Net;
     public struct User
     {
         private string _username;
@@ -39,6 +40,15 @@ namespace Practice2.Data.Entity
             _password = password;
             _createdAt = DateTime.Now;
             _isAdmin = isAdmin;
+        }
+        public void ChangePassword(string password)
+        {
+            if (password.Length < 4)
+            {
+                return;
+            }
+            this.Password = BCrypt.HashPassword(password);
+            return;
         }
     }
 }

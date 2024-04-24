@@ -48,7 +48,13 @@ namespace Practice2.Data.JsonData
             string json = File.ReadAllText(file);
             return !string.IsNullOrWhiteSpace(json) ? JsonSerializer.Deserialize<List<User>>(json) : new List<User>();
         }
-
+        public static void CreateFile()
+        {
+            if (!File.Exists(file))
+            {
+                File.Create(file);
+            }
+        }
     }
 
 }

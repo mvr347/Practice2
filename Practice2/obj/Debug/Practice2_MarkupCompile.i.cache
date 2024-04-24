@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\maxim\source\repos\Practice2\Practice2\App.xaml
-61800587713
+10-472805925
 
-12-583966895
+17289221530
 251399949168
-Data\Languages\uk-UA.xaml;Data\Languages\en-US.xaml;Authorization.xaml;MainWindow.xaml;Pages\LoginPage.xaml;Pages\RegistrationPage.xaml;
+Data\Languages\uk-UA.xaml;Data\Languages\en-US.xaml;Authorization.xaml;MainWindow.xaml;Pages\ApartamentsPage.xaml;Pages\CalculatorPage.xaml;Pages\HomePage.xaml;Pages\LoginPage.xaml;Pages\RegistrationPage.xaml;Pages\SettingsPage.xaml;
 
-False
+True
 

@@ -46,3 +46,11 @@ C:\Users\maxim\source\repos\Practice2\Practice2\bin\Debug\System.Threading.Tasks
 C:\Users\maxim\source\repos\Practice2\Practice2\bin\Debug\System.ValueTuple.xml
 C:\Users\maxim\source\repos\Practice2\Practice2\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\maxim\source\repos\Practice2\Practice2\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\HomePage.g.cs
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\HomePage.baml
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\SettingsPage.g.cs
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\SettingsPage.baml
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\CalculatorPage.g.cs
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\CalculatorPage.baml
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\ApartamentsPage.g.cs
+C:\Users\maxim\source\repos\Practice2\Practice2\obj\Debug\Pages\ApartamentsPage.baml

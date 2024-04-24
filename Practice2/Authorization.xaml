@@ -24,7 +24,7 @@
                 Margin="190,0,0,0"
                 HorizontalAlignment="Stretch"
                 hc:IconElement.Geometry="{StaticResource PageModeGeometry}"
-                Click="btnLangClick"
+                Click="ButtonLanguageClick"
                 Foreground="{DynamicResource PrimaryTextBrush}"
                 Style="{StaticResource ButtonIcon}" />
             <Popup
@@ -40,7 +40,7 @@
                     Background="{DynamicResource SecondaryRegionBrush}"
                     CornerRadius="4"
                     Effect="{StaticResource EffectShadow2}">
-                    <StackPanel Button.Click="btnLangClick">
+                    <StackPanel Button.Click="RadioButtonLanguageClick">
                         <hc:Divider
                             Width="200"
                             Margin="0,10"
@@ -48,34 +48,34 @@
                         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                             <hc:ButtonGroup Orientation="Horizontal" Style="{StaticResource ButtonGroupSolid}">
                                 <RadioButton
-                                    x:Name="rbLangUkrainian"
-                                    Click="btnLangChoiseClick"
+                                    x:Name="RadioButtonUkrainian"
+                                    Click="RadioButtonLanguageClick"
                                     Content="UKR" />
                                 <RadioButton
-                                    x:Name="rbLangEnglish"
-                                    Click="btnLangChoiseClick"
-                                    Content="ENG" />
+                                    x:Name="RadioButtonbEnglish"
+                                    Click="RadioButtonLanguageClick"
+                                    Content="ENG"
+                                    IsChecked="True" />
                             </hc:ButtonGroup>
                         </StackPanel>
-
                         <hc:Divider Width="200" Margin="0,10" />
                     </StackPanel>
                 </Border>
             </Popup>
             <Button
-                Name="ButtonConfig"
+                Name="ButtonTheme"
                 Grid.Column="1"
                 HorizontalAlignment="Right"
                 hc:IconElement.Geometry="{StaticResource ConfigGeometry}"
-                Click="btnConfigClick"
+                Click="ButtonThemeClick"
                 Foreground="{DynamicResource PrimaryTextBrush}"
                 Style="{StaticResource ButtonIcon}" />
             <Popup
-                Name="PopupConfig"
+                Name="PopupTheme"
                 Grid.Column="1"
                 AllowsTransparency="True"
                 HorizontalOffset="-125"
-                PlacementTarget="{Binding ElementName=ButtonConfig}"
+                PlacementTarget="{Binding ElementName=ButtonTheme}"
                 StaysOpen="False"
                 VerticalOffset="6">
                 <Border
@@ -83,7 +83,7 @@
                     Background="{DynamicResource SecondaryRegionBrush}"
                     CornerRadius="4"
                     Effect="{StaticResource EffectShadow2}">
-                    <StackPanel Button.Click="btnSkinsClick">
+                    <StackPanel Button.Click="ThemeSelected">
                         <hc:Divider
                             Width="200"
                             Margin="0,10"

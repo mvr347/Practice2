@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Practice2.Data
 {
-    public static class Handler
+    public static class DataHandler
     {
         public static void ChangeMergedDictionaries(string pattern, string newSource)
         {
@@ -40,11 +40,12 @@ namespace Practice2.Data
 
         public static bool UserExists(User users)
         {
+            ResourceDictionary lang = GetLanguageDictionary();
 
             bool userExists = JsonData.JsonData.LoadUsersFromJson().Any(u => u.Username == users.Username);
             if (userExists)
             {
-                MessageBox.Show("Користувач з таким іменем вже існує.", "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show((string)lang["btn_Enter"], "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return userExists;

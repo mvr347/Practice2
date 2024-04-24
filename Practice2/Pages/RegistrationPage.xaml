@@ -57,7 +57,7 @@
                     ShowEyeButton="True" />
                 <TextBlock Margin="75,-2466,455,2467" TextAlignment="Center">
                     <Run Text="{DynamicResource auth_haveaccount}" />
-                    <Hyperlink Click="hplLoginAccount">
+                    <Hyperlink Click="HyperLinkLogIn">
                         <Run Text="{DynamicResource auth_loginaccount}" />
                     </Hyperlink>
                 </TextBlock>
@@ -72,18 +72,10 @@
                 <Image
                     Margin="390,-3265,-1,2795"
                     RenderTransformOrigin="0.5,0.5"
-                    Source="/Pages/image_2024-04-10_19-58-59.png"
+                    Source="/image_2024-04-10_19-58-59.png"
                     Stretch="UniformToFill">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="1" />
-                            <SkewTransform />
-                            <RotateTransform />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Image.RenderTransform>
                     <Image.OpacityMask>
-                        <ImageBrush ImageSource="/Pages/image_2024-04-10_19-58-59.png" Stretch="Fill" />
+                        <ImageBrush ImageSource="/image_2024-04-10_19-58-59.png" Stretch="Fill" />
                     </Image.OpacityMask>
                 </Image>
             </hc:UniformSpacingPanel>

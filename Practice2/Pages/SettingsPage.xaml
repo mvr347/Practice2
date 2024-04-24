@@ -1,0 +1,118 @@
+﻿<Page
+    x:Class="Practice2.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Practice2.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SettingsPage"
+    d:DesignHeight="377"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Border
+            Margin="10,10,10,10"
+            Background="{DynamicResource BorderBrush}"
+            CornerRadius="15">
+            <hc:TabControl
+                Margin="10,10,10,10"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}">
+                <hc:TabItem Header="Settings" IsSelected="True">
+                    <hc:SimpleStackPanel>
+                        <hc:TextBox
+                            Width="199"
+                            Height="30"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            IsReadOnly="True"
+                            SelectionBrush="{x:Null}"
+                            SelectionTextBrush="{x:Null}"
+                            Text="Language" />
+                        <ComboBox
+                            x:Name="ComboBoxLanguageChange"
+                            Width="199"
+                            Height="30"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left" />
+                        <hc:TextBox
+                            Width="199"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            IsReadOnly="True"
+                            SelectionBrush="{x:Null}"
+                            SelectionTextBrush="{x:Null}"
+                            Text="Dark theme" />
+                        <ToggleButton
+                            x:Name="ToggleButtonTheme"
+                            Width="42"
+                            Margin="18,0,0,0"
+                            HorizontalAlignment="Left"
+                            Checked="ToggleButtonChanged"
+                            Style="{StaticResource ToggleButtonSwitch}"
+                            Unchecked="ToggleButtonChanged" />
+                    </hc:SimpleStackPanel>
+                </hc:TabItem>
+                <hc:TabItem Header="Account">
+                    <hc:SimpleStackPanel>
+                        <Expander
+                            Width="199"
+                            Margin="0,5,557,0"
+                            HorizontalAlignment="Left"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            Header="Change Password">
+                            <Border Background="{DynamicResource SecondaryRegionBrush}">
+                                <StackPanel>
+                                    <TextBox
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        IsReadOnly="True"
+                                        SelectionBrush="{x:Null}"
+                                        SelectionTextBrush="{x:Null}"
+                                        Text="Current Password" />
+                                    <hc:PasswordBox x:Name="Password" ShowEyeButton="True" />
+                                    <TextBox
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        IsReadOnly="True"
+                                        SelectionBrush="{x:Null}"
+                                        SelectionTextBrush="{x:Null}"
+                                        Text="New Password" />
+                                    <hc:PasswordBox x:Name="NewPassword" ShowEyeButton="True" />
+                                    <Button
+                                        Margin="5"
+                                        VerticalAlignment="Top"
+                                        Content="Change password" />
+                                </StackPanel>
+                            </Border>
+                        </Expander>
+                        <Button
+                            x:Name="ButtonDelete"
+                            Width="199"
+                            Margin="0,10"
+                            HorizontalAlignment="Left"
+                            Click="ButtonDeleteClick"
+                            Content="Delete account"
+                            Style="{StaticResource ButtonDanger}" />
+                        <Button
+                            x:Name="ButtonWipeAllUsers"
+                            Width="199"
+                            Margin="0,10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Click="ButtonWipeAllUsersClick"
+                            Content="Wipe users"
+                            Style="{StaticResource ButtonDanger}"
+                            Visibility="Collapsed" />
+                    </hc:SimpleStackPanel>
+                </hc:TabItem>
+            </hc:TabControl>
+        </Border>
+    </Grid>
+</Page>
