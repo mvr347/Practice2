@@ -2,13 +2,13 @@
 
 namespace Practice2.Data.Entity
 {
-    using BCrypt.Net;
     public struct User
     {
         private string _username;
         private string _password;
         private DateTime? _createdAt;
         private bool _isAdmin;
+        private string _apartment;
 
         public string Username
         {
@@ -34,21 +34,29 @@ namespace Practice2.Data.Entity
             set { _isAdmin = value; }
         }
 
-        public User(string username, string password, bool isAdmin)
+        public string apartment
+        {
+            get { return _apartment; }
+            set { _apartment = value; }
+        }
+
+        public User(string username, string password, bool isAdmin, string apartment)
         {
             _username = username;
             _password = password;
             _createdAt = DateTime.Now;
             _isAdmin = isAdmin;
+            _apartment = apartment;
         }
-        public void ChangePassword(string password)
-        {
-            if (password.Length < 4)
-            {
-                return;
-            }
-            this.Password = BCrypt.HashPassword(password);
-            return;
-        }
+
+        //public void ChangePassword(string password) На курсач
+        //{
+        //    if (password.Length < 6)
+        //    {
+        //        return;
+        //    }
+        //    this.Password = BCrypt.HashPassword(password);
+        //    return;
+        //}
     }
 }

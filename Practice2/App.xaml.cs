@@ -13,19 +13,24 @@ namespace Practice2
 {
     public partial class App : Application
     {
-        public static User user = new User();
+        public static User user = new User(); //Створює нового користувача
+        public static Apartments Apartments = new Apartments(); //Теж саме але квартира
 
-        private static List<CultureInfo> _availableLanguages = new List<CultureInfo>();
+        private static List<CultureInfo> _availableLanguages = new List<CultureInfo>(); //Створює лист з доступними мовами
 
         public App()
         {
+            JsonData.CreateDirectory();
+            JsonData.CreateFile();
+
             _availableLanguages.Clear();
             _availableLanguages.Add(new CultureInfo("en-US"));
             _availableLanguages.Add(new CultureInfo("uk-UA"));
-            JsonData.CreateDirectory();
             Language = Settings.Default.DefaultLanguage;
         }
 
+        //Змінює мову застосунку
+        #region Language
         public static ReadOnlyCollection<CultureInfo> AvailableLanguages
         {
             get
@@ -59,7 +64,9 @@ namespace Practice2
                 Settings.Default.Save();
             }
         }
-
+        #endregion
+        //Змінює тему застосунку
+        #region Theme
         internal void UpdateTheme(ApplicationTheme theme)
         {
             if (ThemeManager.Current.ApplicationTheme != theme)
@@ -75,5 +82,6 @@ namespace Practice2
                 ThemeManager.Current.AccentColor = accent;
             }
         }
+        #endregion
     }
 }

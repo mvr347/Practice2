@@ -104,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HouseCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Data\Languages\uk-UA.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -116,10 +120,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="HouseCreate.xaml.cs">
+      <DependentUpon>HouseCreate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\ApartmentsWrapper.cs" />
     <Compile Include="Data\Entity\Apartaments.cs" />
     <Compile Include="Data\Entity\User.cs" />
     <Compile Include="Data\JsonData\JsonData.cs" />
@@ -127,11 +135,15 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="EditApartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ApartamentsPage.xaml">
+    <Page Include="Pages\ApartmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,11 +170,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHandler.cs" />
+    <Compile Include="EditApartment.xaml.cs">
+      <DependentUpon>EditApartment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ApartamentsPage.xaml.cs">
-      <DependentUpon>ApartamentsPage.xaml</DependentUpon>
+    <Compile Include="Pages\ApartmentsPage.xaml.cs">
+      <DependentUpon>ApartmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>

@@ -20,7 +20,7 @@
                 Margin="10,10,10,10"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}">
-                <hc:TabItem Header="Energy" IsSelected="True">
+                <hc:TabItem Header="{DynamicResource calculator_text1}" IsSelected="True">
                     <hc:SimpleStackPanel>
                         <hc:TextBox
                             Width="199"
@@ -32,14 +32,14 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Tariff" />
+                            Text="{DynamicResource calculator_text4}" />
                         <ComboBox
                             Width="199"
                             Height="30"
                             Margin="0,0,559,0"
                             HorizontalAlignment="Left">
-                            <ComboBoxItem x:Name="DayTariff" Content="Day" />
-                            <ComboBoxItem x:Name="NightTariff" Content="Night" />
+                            <ComboBoxItem x:Name="DayTariff" Content="{DynamicResource calculator_text12}" />
+                            <ComboBoxItem x:Name="NightTariff" Content="{DynamicResource calculator_text13}" />
                         </ComboBox>
                         <hc:TextBox
                             Width="199"
@@ -50,7 +50,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="In-line, kW" />
+                            Text="{DynamicResource calculator_text5}" />
                         <hc:TextBox
                             x:Name="InLineKW"
                             Width="199"
@@ -65,7 +65,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Front, kW" />
+                            Text="{DynamicResource calculator_text6}" />
                         <hc:TextBox
                             x:Name="FrontKW"
                             Width="199"
@@ -79,7 +79,7 @@
                             BorderBrush="Transparent"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Different" />
+                            Text="{DynamicResource calculator_text7}" />
                         <hc:TextBox
                             x:Name="DifferentEnergy"
                             Width="199"
@@ -92,16 +92,16 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Click="ButtonCountEnergyClick"
-                            Content="Calculate" />
+                            Content="{DynamicResource calculator_text8}" />
                         <Label
                             x:Name="LabelPriceEnergy"
                             Width="174"
                             Margin="10,0,0,0"
                             HorizontalAlignment="Left"
-                            Content="Price: 0,00 HRN" />
+                            Content="{DynamicResource calculator_text9}" />
                     </hc:SimpleStackPanel>
                 </hc:TabItem>
-                <hc:TabItem Header="Water">
+                <hc:TabItem Header="{DynamicResource calculator_text2}">
                     <hc:SimpleStackPanel>
                         <hc:TextBox
                             Width="199"
@@ -112,7 +112,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="In-line, m3" />
+                            Text="{DynamicResource calculator_text10}" />
                         <hc:TextBox
                             x:Name="InLineCM"
                             Width="199"
@@ -127,7 +127,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Front, m3" />
+                            Text="{DynamicResource calculator_text11}" />
                         <hc:TextBox
                             x:Name="FrontCM"
                             Width="199"
@@ -142,7 +142,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Different" />
+                            Text="{DynamicResource calculator_text7}" />
                         <hc:TextBox
                             x:Name="DifferentWater"
                             Width="199"
@@ -155,16 +155,16 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Click="ButtonCountWaterClick"
-                            Content="Calculate" />
+                            Content="{DynamicResource calculator_text8}" />
                         <Label
                             x:Name="LabelPriceWater"
                             Width="174"
                             Margin="10,0,0,0"
                             HorizontalAlignment="Left"
-                            Content="Price: 0,00 HRN" />
+                            Content="{DynamicResource calculator_text9}" />
                     </hc:SimpleStackPanel>
                 </hc:TabItem>
-                <hc:TabItem Header="Gas">
+                <hc:TabItem Header="{DynamicResource calculator_text3}">
                     <hc:SimpleStackPanel>
                         <hc:TextBox
                             Width="199"
@@ -175,7 +175,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="In-line, m3" />
+                            Text="{DynamicResource calculator_text10}" />
                         <hc:TextBox
                             x:Name="InLineGCM"
                             Width="199"
@@ -190,7 +190,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Front, m3" />
+                            Text="{DynamicResource calculator_text11}" />
                         <hc:TextBox
                             x:Name="FrontGCM"
                             Width="199"
@@ -205,7 +205,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Different" />
+                            Text="{DynamicResource calculator_text7}" />
                         <hc:TextBox
                             x:Name="DifferentGas"
                             Width="199"
@@ -218,13 +218,13 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Click="ButtonCountGasClick"
-                            Content="Calculate" />
+                            Content="{DynamicResource calculator_text8}" />
                         <Label
                             x:Name="LabelPriceGas"
                             Width="174"
                             Margin="10,0,0,0"
                             HorizontalAlignment="Left"
-                            Content="Price: 0,00 HRN" />
+                            Content="{DynamicResource calculator_text9}" />
                     </hc:SimpleStackPanel>
                 </hc:TabItem>
             </hc:TabControl>

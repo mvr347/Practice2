@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice2.Data.JsonData;
+using System;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,31 +16,19 @@ namespace Practice2
             Loaded += WindowLoaded;
 
         }
-        public void WindowLoaded(object sender, RoutedEventArgs e)
+        public void WindowLoaded(object sender, RoutedEventArgs e) //Дія при запуску вікна
         {
             ButtonTransperent();
+
+            JsonData.CreateFile();
 
             ButtonHome.ClearValue(BackgroundProperty);
 
             UsernameLabel.Content = App.user.Username;
         }
 
-        public void SettingsClick(object sender, RoutedEventArgs e)
-        {
-            ButtonTransperent();
-
-            MainWindowFrame.Navigate(new Uri("Pages/SettingsPage.xaml", UriKind.Relative));
-        }
-        public void LogoutClick(object sender, RoutedEventArgs e)
-        {
-            Authorization authorization = new Authorization();
-            authorization.Show();
-            App.user = default;
-
-            Close();
-        }
         #region Buttons
-        private void ButtonHomeClick(object sender, RoutedEventArgs e)
+        void ButtonHomeClick(object sender, RoutedEventArgs e) //Головна сторінка
         {
             ButtonTransperent();
 
@@ -47,7 +36,7 @@ namespace Practice2
 
             MainWindowFrame.Navigate(new Uri("Pages/HomePage.xaml", UriKind.Relative));
         }
-        public void ButtonCalculatorClick(object sender, RoutedEventArgs e)
+        void ButtonCalculatorClick(object sender, RoutedEventArgs e) //Сторінка калькулятор
         {
             ButtonTransperent();
 
@@ -55,19 +44,34 @@ namespace Practice2
 
             MainWindowFrame.Navigate(new Uri("Pages/CalculatorPage.xaml", UriKind.Relative));
         }
-        public void ButtonApartamentsClick(object sender, RoutedEventArgs e)
+        public void ButtonApartmentsClick(object sender, RoutedEventArgs e) //Сторінка квартир
         {
             ButtonTransperent();
 
-            ButtonApartaments.ClearValue(BackgroundProperty);
+            ButtonApartments.ClearValue(BackgroundProperty);
 
-            MainWindowFrame.Navigate(new Uri("Pages/ApartamentsPage.xaml", UriKind.Relative));
+            MainWindowFrame.Navigate(new Uri("Pages/ApartmentsPage.xaml", UriKind.Relative));
         }
-        public void ButtonTransperent()
+
+        public void ButtonSettingsClick(object sender, RoutedEventArgs e) //Сторінка параметрів
+        {
+            ButtonTransperent();
+
+            MainWindowFrame.Navigate(new Uri("Pages/SettingsPage.xaml", UriKind.Relative));
+        }
+        void ButtonLogoutClick(object sender, RoutedEventArgs e) //вихід з акаунту
+        {
+            Authorization authorization = new Authorization();
+            authorization.Show();
+            App.user = default;
+
+            Close();
+        }
+        void ButtonTransperent() //Очищення фону для кнопок
         {
             ButtonHome.Background = Brushes.Transparent;
             ButtonCalculator.Background = Brushes.Transparent;
-            ButtonApartaments.Background = Brushes.Transparent;
+            ButtonApartments.Background = Brushes.Transparent;
         }
         #endregion
     }

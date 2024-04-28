@@ -8,6 +8,7 @@ using System.Windows.Media;
 namespace Practice2.Pages
 {
     using BCrypt.Net;
+    using Practice2.Data;
 
     public partial class LoginPage : Page
     {
@@ -15,11 +16,9 @@ namespace Practice2.Pages
         {
             InitializeComponent();
 
-            DataContext = this;
-
         }
-
-        protected async void Login(object sender, RoutedEventArgs e)
+        #region Login
+        protected async void Login(object sender, RoutedEventArgs e) //Здійснює вхід користувача
         {
 
             string username = logUsername.Text.Trim();
@@ -36,7 +35,7 @@ namespace Practice2.Pages
                     logUsername.BorderBrush = Brushes.Red;
                     logPassword.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("Incorrect username or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("login_exception1"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -51,7 +50,7 @@ namespace Practice2.Pages
                     logUsername.BorderBrush = Brushes.Red;
                     logPassword.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("Incorrect username or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("login_exception1"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -75,7 +74,7 @@ namespace Practice2.Pages
             {
                 logUsername.BorderBrush = Brushes.Red;
 
-                HandyControl.Controls.MessageBox.Show("User don`t exist", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("login_exception2"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                 await Task.Delay(3000);
 
@@ -85,8 +84,8 @@ namespace Practice2.Pages
             }
 
         }
-
-        private void HyperLinkSingIn(object sender, RoutedEventArgs e)
+        #endregion
+        void HyperLinkSingIn(object sender, RoutedEventArgs e) //Змінює сторінку логіна на реєстрацію
         {
             Authorization parentWindow = (Authorization)Window.GetWindow(this);
             parentWindow.AuthorizationMainFrame.Navigate(new RegistrationPage());

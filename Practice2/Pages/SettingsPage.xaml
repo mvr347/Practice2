@@ -20,7 +20,7 @@
                 Margin="10,10,10,10"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}">
-                <hc:TabItem Header="Settings" IsSelected="True">
+                <hc:TabItem Header="{DynamicResource settings_text1}" IsSelected="True">
                     <hc:SimpleStackPanel>
                         <hc:TextBox
                             Width="199"
@@ -32,7 +32,7 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Language" />
+                            Text="{DynamicResource settings_text3}" />
                         <ComboBox
                             x:Name="ComboBoxLanguageChange"
                             Width="199"
@@ -48,25 +48,25 @@
                             IsReadOnly="True"
                             SelectionBrush="{x:Null}"
                             SelectionTextBrush="{x:Null}"
-                            Text="Dark theme" />
+                            Text="{DynamicResource settings_text4}" />
                         <ToggleButton
                             x:Name="ToggleButtonTheme"
                             Width="42"
                             Margin="18,0,0,0"
                             HorizontalAlignment="Left"
                             Checked="ToggleButtonChanged"
-                            Style="{StaticResource ToggleButtonSwitch}"
+                            Style="{DynamicResource ToggleButtonSwitch}"
                             Unchecked="ToggleButtonChanged" />
                     </hc:SimpleStackPanel>
                 </hc:TabItem>
-                <hc:TabItem Header="Account">
+                <hc:TabItem Header="{DynamicResource settings_text2}">
                     <hc:SimpleStackPanel>
-                        <Expander
+                        <!--<Expander // На курсач
                             Width="199"
                             Margin="0,5,557,0"
                             HorizontalAlignment="Left"
                             BorderBrush="{DynamicResource BorderBrush}"
-                            Header="Change Password">
+                            Header="{DynamicResource settings_text5}">
                             <Border Background="{DynamicResource SecondaryRegionBrush}">
                                 <StackPanel>
                                     <TextBox
@@ -75,31 +75,32 @@
                                         IsReadOnly="True"
                                         SelectionBrush="{x:Null}"
                                         SelectionTextBrush="{x:Null}"
-                                        Text="Current Password" />
-                                    <hc:PasswordBox x:Name="Password" ShowEyeButton="True" />
+                                        Text="{DynamicResource settings_text6}" />
+                                    <hc:PasswordBox x:Name="PasswordBoxCurrentPassword" ShowEyeButton="True" />
                                     <TextBox
                                         Background="Transparent"
                                         BorderBrush="Transparent"
                                         IsReadOnly="True"
                                         SelectionBrush="{x:Null}"
                                         SelectionTextBrush="{x:Null}"
-                                        Text="New Password" />
-                                    <hc:PasswordBox x:Name="NewPassword" ShowEyeButton="True" />
+                                        Text="{DynamicResource settings_text7}" />
+                                    <hc:PasswordBox x:Name="PasswordBoxNewPassword" ShowEyeButton="True" />
                                     <Button
                                         Margin="5"
                                         VerticalAlignment="Top"
-                                        Content="Change password" />
+                                        Click="Button_Click"
+                                        Content="{DynamicResource settings_text5}" />
                                 </StackPanel>
                             </Border>
-                        </Expander>
+                        </Expander>-->
                         <Button
                             x:Name="ButtonDelete"
                             Width="199"
                             Margin="0,10"
                             HorizontalAlignment="Left"
                             Click="ButtonDeleteClick"
-                            Content="Delete account"
-                            Style="{StaticResource ButtonDanger}" />
+                            Content="{DynamicResource settings_text8}"
+                            Style="{DynamicResource ButtonDanger}" />
                         <Button
                             x:Name="ButtonWipeAllUsers"
                             Width="199"
@@ -107,8 +108,8 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Click="ButtonWipeAllUsersClick"
-                            Content="Wipe users"
-                            Style="{StaticResource ButtonDanger}"
+                            Content="{DynamicResource settings_text9}"
+                            Style="{DynamicResource ButtonDanger}"
                             Visibility="Collapsed" />
                     </hc:SimpleStackPanel>
                 </hc:TabItem>

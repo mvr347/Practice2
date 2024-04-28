@@ -1,14 +1,9 @@
 [
   {
     "Username": "adm",
-    "Password": "$2a$11$R95rSZsPRt6WCatb5Cb3Fuj4I98OyYGQxFrygZyQW7WQnTViWdoRa",
-    "CreatedAt": "2024-04-18T02:35:51.7069371+03:00",
-    "IsAdmin": true
-  },
-  {
-    "Username": "user",
-    "Password": "$2a$11$2zuq/wddW3CIugTyZPuoa.0amUPfc825tK0mYyUVXRwjBiD9EcEiO",
-    "CreatedAt": "2024-04-18T02:36:08.27884+03:00",
-    "IsAdmin": false
+    "Password": "$2a$11$fQKP73vG4zVNeihO5m8rY.okkSf38CFA1J3FCKDFICiCP..uHqey2",
+    "CreatedAt": "2024-04-29T01:26:53.4983793+03:00",
+    "IsAdmin": true,
+    "apartment": null
   }
 ]

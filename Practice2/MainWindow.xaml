@@ -32,36 +32,36 @@
             </Grid.ColumnDefinitions>
             <Button
                 x:Name="ButtonHome"
-                Width="79"
+                Width="83"
                 Height="38"
                 Margin="10,0,0,0"
                 HorizontalAlignment="Left"
                 Background="White"
                 BorderBrush="Transparent"
                 Click="ButtonHomeClick"
-                Content="Home"
+                Content="{DynamicResource main_text1}"
                 FontSize="16" />
             <Button
                 x:Name="ButtonCalculator"
-                Width="94"
+                Width="113"
                 Height="38"
                 Margin="116,0,0,0"
                 HorizontalAlignment="Left"
                 Background="White"
                 BorderBrush="Transparent"
                 Click="ButtonCalculatorClick"
-                Content="Calculator"
+                Content="{DynamicResource main_text2}"
                 FontSize="16" />
             <Button
-                x:Name="ButtonApartaments"
-                Width="119"
+                x:Name="ButtonApartments"
+                Width="122"
                 Height="38"
-                Margin="241,0,0,0"
+                Margin="248,0,0,0"
                 HorizontalAlignment="Left"
-                Background="Transparent"
+                Background="White"
                 BorderBrush="Transparent"
-                Click="ButtonApartamentsClick"
-                Content="Apartaments"
+                Click="ButtonApartmentsClick"
+                Content="{DynamicResource main_text3}"
                 FontSize="16" />
             <Label
                 x:Name="UsernameLabel"
@@ -80,20 +80,20 @@
                 Width="40"
                 Margin="74,0,0,0"
                 HorizontalAlignment="Left"
-                hc:IconElement.Geometry="{StaticResource ErrorGeometry}"
-                hc:Poptip.Content="Log out of your account"
+                hc:IconElement.Geometry="{DynamicResource ErrorGeometry}"
+                hc:Poptip.Content="{DynamicResource main_text4}"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
-                Click="LogoutClick" />
+                Click="ButtonLogoutClick" />
             <Button
                 x:Name="ButtonSettings"
                 Grid.Column="3"
                 Width="47"
                 Height="34"
-                hc:IconElement.Geometry="{StaticResource ConfigGeometry}"
+                hc:IconElement.Geometry="{DynamicResource ConfigGeometry}"
                 Background="Transparent"
                 BorderBrush="Transparent"
-                Click="SettingsClick" />
+                Click="ButtonSettingsClick" />
         </Grid>
         <Frame
             x:Name="MainWindowFrame"

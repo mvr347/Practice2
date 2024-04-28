@@ -24,14 +24,14 @@
             CornerRadius="15">
             <hc:SimpleStackPanel>
                 <hc:TextBox
-                    Margin="10"
+                    Margin="10,25,10,-5"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
                     FontSize="18"
                     IsReadOnly="True"
                     SelectionBrush="{x:Null}"
                     SelectionTextBrush="{x:Null}"
-                    Text="Програма для управління Об'єднанням співвласників багатоквартирного будинку (ОСББ)" />
+                    Text="{DynamicResource home_textbox1}" />
                 <hc:TextBox
                     Margin="10"
                     Background="{x:Null}"
@@ -40,7 +40,7 @@
                     IsReadOnly="True"
                     SelectionBrush="{x:Null}"
                     SelectionTextBrush="{x:Null}"
-                    Text="Ця програма створена для використання власниками квартир та організаторами ОСББ, поєднуючи комфорт користування та функціональність"
+                    Text="{DynamicResource home_textbox2}"
                     TextWrapping="Wrap" />
             </hc:SimpleStackPanel>
         </Border>
@@ -55,31 +55,34 @@
                 Background="{DynamicResource BorderBrush}"
                 BorderBrush="Transparent"
                 CornerRadius="15">
-                <hc:SimpleStackPanel>
+                <StackPanel>
                     <hc:TextBox
-                        Margin="0,10,0,-10"
+                        Width="379"
+                        Margin="5,15,10,-15"
+                        HorizontalAlignment="Left"
                         Background="{x:Null}"
                         BorderBrush="{x:Null}"
                         FontSize="18"
                         IsReadOnly="True"
                         SelectionBrush="{x:Null}"
                         SelectionTextBrush="{x:Null}"
-                        Text="Використання програми надає такі переваги:" />
+                        Text="{DynamicResource home_textbox3}"
+                        TextWrapping="Wrap" />
                     <TextBlock
+                        Width="360"
+                        Height="107"
                         Margin="10,15,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         FontSize="18"
-                        Style="{StaticResource TextBlockDefault}">
-                        <Run Text=" • Оплата комунальних послуг" />
+                        Style="{DynamicResource TextBlockDefault}">
+                        <Run Text="{DynamicResource home_textbox4}" />
                         <LineBreak />
-                        <Run Text=" • Бла бла бла" />
+                        <Run Text="{DynamicResource home_textbox5}" />
                         <LineBreak />
-                        <Run Text=" • Бла бла бла" />
-                        <LineBreak />
-                        <Run Text=" • Бла бла бла" />
+                        <Run Text="{DynamicResource home_textbox6}" />
                     </TextBlock>
-                </hc:SimpleStackPanel>
+                </StackPanel>
             </Border>
             <Border
                 Grid.Column="1"
@@ -89,19 +92,21 @@
                 CornerRadius="15">
                 <hc:SimpleStackPanel>
                     <TextBlock
-                        Height="175"
-                        Margin="10,10,10,0"
+                        Width="380"
+                        Height="165"
+                        Margin="15,10,0,0"
+                        HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         FontSize="18"
-                        Style="{StaticResource TextBlockDefault}"
+                        Style="{DynamicResource TextBlockDefault}"
                         TextWrapping="Wrap">
-                        <Run Text="Використані технології в додатку" />
+                        <Run Text="{DynamicResource home_textbox7}" />
                         <LineBreak />
-                        <Run Text="Мова програмування: C# 7.3" />
+                        <Run Text="{DynamicResource home_textbox8}" />
                         <LineBreak />
-                        <Run Text="Платформа: .NET" />
+                        <Run Text="{DynamicResource home_textbox9}" />
                         <LineBreak />
-                        <Run Text="Користувацький інтерфейс: Windows Presentation Foundation (WPF)" />
+                        <Run Text="{DynamicResource home_textbox10}" />
                     </TextBlock>
                 </hc:SimpleStackPanel>
             </Border>

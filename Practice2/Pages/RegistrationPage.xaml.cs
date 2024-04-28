@@ -15,7 +15,9 @@ namespace Practice2.Pages
         {
             InitializeComponent();
         }
-        protected async void Registration(object sender, RoutedEventArgs e)
+
+        #region Registration
+        protected async void Registration(object sender, RoutedEventArgs e) //Здійснює вхід користувача
         {
             MainWindow mainWindow = new MainWindow();
 
@@ -23,11 +25,12 @@ namespace Practice2.Pages
             string password = regPassword.Password.Trim();
             string confirmpassword = regConfirmPassword.Password.Trim();
 
-            bool isAdmin = DataHandler.IsFileEmpty();
+            bool isAdmin = DataHandler.IsFileEmptyUser();
             User user = new User(
                 username: regUsername.Text,
                 password: regPassword.Password,
-                isAdmin: isAdmin
+                isAdmin: isAdmin,
+                apartment: null
             );
 
             user.Password = BCrypt.HashPassword(regPassword.Password);
@@ -35,6 +38,9 @@ namespace Practice2.Pages
             if (DataHandler.UserExists(user))
             {
                 return;
+            }
+            else
+            {
 
                 if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmpassword))
                 {
@@ -43,7 +49,7 @@ namespace Practice2.Pages
                     regPassword.BorderBrush = Brushes.Red;
                     regConfirmPassword.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("Incorrect username,password or password confirm!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception1"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -57,9 +63,9 @@ namespace Practice2.Pages
                 {
                     regUsername.BorderBrush = Brushes.Red;
 
-                    if (username.Length <= 2) HandyControl.Controls.MessageBox.Show("Username too short!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (username.Length <= 2) HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception2"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    if (username.Length >= 15) HandyControl.Controls.MessageBox.Show("Username too long!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (username.Length >= 15) HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception3"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -71,9 +77,9 @@ namespace Practice2.Pages
                 {
                     regPassword.BorderBrush = Brushes.Red;
 
-                    if (password.Length <= 6) HandyControl.Controls.MessageBox.Show("Passwords too short!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (password.Length <= 6) HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception4"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
-                    if (password.Length >= 18) HandyControl.Controls.MessageBox.Show("Passwords too long!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    if (password.Length >= 18) HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception5"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -86,7 +92,7 @@ namespace Practice2.Pages
                     regPassword.BorderBrush = Brushes.Red;
                     regConfirmPassword.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("Passwords are different!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("registration_exception6"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -96,9 +102,6 @@ namespace Practice2.Pages
                     return;
                 }
 
-            }
-            else
-            {
                 JsonData.SaveUsersToJson(user);
 
                 App.user = user;
@@ -108,8 +111,9 @@ namespace Practice2.Pages
                 mainWindow.Show();
             }
         }
+        #endregion
 
-        public void HyperLinkLogIn(object sender, RoutedEventArgs e)
+        void HyperLinkLogIn(object sender, RoutedEventArgs e)  //Змінює сторінку реєстрацію на логіна 
         {
             Authorization parentWindow = (Authorization)Window.GetWindow(this);
             parentWindow.AuthorizationMainFrame.Navigate(new LoginPage());

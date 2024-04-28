@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice2.Data;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,17 +7,14 @@ using System.Windows.Media;
 
 namespace Practice2.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для CalculatorPage.xaml
-    /// </summary>
     public partial class CalculatorPage : Page
     {
         public CalculatorPage()
         {
             InitializeComponent();
         }
-
-        private async void ButtonCountEnergyClick(object sender, RoutedEventArgs e)
+        #region Buttons
+        async void ButtonCountEnergyClick(object sender, RoutedEventArgs e) //Вирахування комунальних послуг за електроенергію
         {
             try
             {
@@ -28,7 +26,7 @@ namespace Practice2.Pages
                 {
                     InLineKW.BorderBrush = FrontKW.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("In-line higher than front!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("calculator_exception2"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -50,7 +48,7 @@ namespace Practice2.Pages
                 }
                 else
                 {
-                    throw new InvalidOperationException("Please select a tariff.");
+                    throw new InvalidOperationException(DataHandler.GetTextComponent("calculator_exception1"));
                 }
 
 
@@ -58,19 +56,19 @@ namespace Practice2.Pages
 
                 DifferentEnergy.Text = $"{difference}";
 
-                LabelPriceEnergy.Content = $"Price: {price} HRN";
+                LabelPriceEnergy.Content = DataHandler.GetTextComponent("calculator_message_price") + price + DataHandler.GetTextComponent("calculator_message_hrn");
             }
             catch (FormatException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (InvalidOperationException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private async void ButtonCountWaterClick(object sender, RoutedEventArgs e)
+        async void ButtonCountWaterClick(object sender, RoutedEventArgs e) //Вирахування комунальних послуг за воду
         {
             try
             {
@@ -82,7 +80,7 @@ namespace Practice2.Pages
                 {
                     InLineKW.BorderBrush = FrontKW.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("In-line higher than front!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("calculator_exception2"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -101,19 +99,19 @@ namespace Practice2.Pages
 
                 DifferentWater.Text = $"{difference}";
 
-                LabelPriceWater.Content = $"Price: {price} HRN";
+                LabelPriceWater.Content = DataHandler.GetTextComponent("calculator_message_price") + price + DataHandler.GetTextComponent("calculator_message_hrn");
             }
             catch (FormatException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (InvalidOperationException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private async void ButtonCountGasClick(object sender, RoutedEventArgs e)
+        async void ButtonCountGasClick(object sender, RoutedEventArgs e) //Вирахування комунальних послуг за газ
         {
             try
             {
@@ -125,7 +123,7 @@ namespace Practice2.Pages
                 {
                     InLineKW.BorderBrush = FrontKW.BorderBrush = Brushes.Red;
 
-                    HandyControl.Controls.MessageBox.Show("In-line higher than front!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandyControl.Controls.MessageBox.Show(DataHandler.GetTextComponent("calculator_exception2"), DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
 
                     await Task.Delay(3000);
 
@@ -144,16 +142,17 @@ namespace Practice2.Pages
 
                 DifferentGas.Text = $"{difference}";
 
-                LabelPriceGas.Content = $"Price: {price} HRN";
+                LabelPriceGas.Content = DataHandler.GetTextComponent("calculator_message_price") + price + DataHandler.GetTextComponent("calculator_message_hrn");
             }
             catch (FormatException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (InvalidOperationException ex)
             {
-                HandyControl.Controls.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(ex.Message, DataHandler.GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        #endregion
     }
 }

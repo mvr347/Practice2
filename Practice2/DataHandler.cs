@@ -8,7 +8,8 @@ namespace Practice2.Data
 {
     public static class DataHandler
     {
-        public static void ChangeMergedDictionaries(string pattern, string newSource)
+        #region Language
+        public static void ChangeMergedDictionaries(string pattern, string newSource) //Зміни джерела словників ресурсів
         {
 
             ResourceDictionary dict = new ResourceDictionary();
@@ -30,32 +31,41 @@ namespace Practice2.Data
                 Application.Current.Resources.MergedDictionaries.Add(dict);
             }
         }
-        public static ResourceDictionary GetLanguageDictionary()
+
+        public static ResourceDictionary GetLanguageDictionary() //отримання словника ресурсів
         {
             return (
                 from d in Application.Current.Resources.MergedDictionaries
-                where d.Source != null && d.Source.OriginalString.StartsWith(@"\Data\Language\")
+                where d.Source != null && d.Source.OriginalString.StartsWith(@"Data\Languages\")
                 select d).FirstOrDefault();
         }
-
-        public static bool UserExists(User users)
+        public static string GetTextComponent(string key) //Для використання словника ресурсів в cs коді
         {
-            ResourceDictionary lang = GetLanguageDictionary();
+            return GetLanguageDictionary()[key] as string;
+        }
+        #endregion
+
+        #region User
+        public static bool UserExists(User users) //Якщо користувач існує
+        {
 
             bool userExists = JsonData.JsonData.LoadUsersFromJson().Any(u => u.Username == users.Username);
             if (userExists)
             {
-                HandyControl.Controls.MessageBox.Show((string)lang["btn_Enter"], "Помилка", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandyControl.Controls.MessageBox.Show(GetTextComponent("user_exists"), GetTextComponent("exception"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return userExists;
         }
+        #endregion
 
-        public static bool IsFileEmpty()
+        #region Files
+        public static bool IsFileEmptyUser() //Якщо файл пустий
         {
             List<User> users = JsonData.JsonData.LoadUsersFromJson();
 
             return !users.Any();
         }
+        #endregion
     }
 }

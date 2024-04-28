@@ -18,11 +18,11 @@ namespace Practice2
             TheMainFrame = AuthorizationMainFrame;
 
 
-            AuthorizationMainFrame.Navigate(new Uri("Pages/RegistrationPage.xaml", UriKind.Relative));
+            AuthorizationMainFrame.Navigate(new Uri("Pages/RegistrationPage.xaml", UriKind.Relative)); //Стартує застосунок з головної сторінки (реєстрації)
 
             CultureInfo currentLangauge = App.Language;
 
-            foreach (var lang in App.AvailableLanguages)
+            foreach (var lang in App.AvailableLanguages) //Додає доступні мови в список для змоги її міняти
             {
                 RadioButton radioButton = new RadioButton();
                 radioButton.Content = lang.DisplayName;
@@ -33,14 +33,12 @@ namespace Practice2
         }
 
         #region Change Language
-        private async void ButtonLanguageClick(object sender, RoutedEventArgs e)
+        private async void ButtonLanguageClick(object sender, RoutedEventArgs e) //Якщо мова не задана == Англійська
         {
 
             CultureInfo currentLangauge = App.Language;
 
-            if (RadioButtonbEnglish.IsChecked != true && RadioButtonUkrainian.IsChecked != true) RadioButtonbEnglish.IsChecked = true;
-
-            RadioButtonbEnglish.IsChecked = true;
+            if (RadioButtonEnglish.IsChecked != true && RadioButtonUkrainian.IsChecked != true) RadioButtonEnglish.IsChecked = true;
 
             await Task.Delay(130);
 
@@ -48,12 +46,12 @@ namespace Practice2
             {
                 RadioButtonUkrainian.IsChecked = true;
             }
-            else { RadioButtonbEnglish.IsChecked = true; }
+            else { RadioButtonEnglish.IsChecked = true; }
 
             PopupLanguage.IsOpen = true;
         }
 
-        private void RadioButtonLanguageClick(object sender, RoutedEventArgs e)
+        private void RadioButtonLanguageClick(object sender, RoutedEventArgs e) //Обраний радіобатон == мова застосунку
         {
             if (e.OriginalSource is RadioButton radioButton)
             {
@@ -72,9 +70,9 @@ namespace Practice2
         }
         #endregion
         #region Change Theme
-        private void ButtonThemeClick(object sender, RoutedEventArgs e) => PopupTheme.IsOpen = true;
+        private void ButtonThemeClick(object sender, RoutedEventArgs e) => PopupTheme.IsOpen = true; //Відкриває меню зміни теми
 
-        private void ThemeSelected(object sender, RoutedEventArgs e)
+        private void ThemeSelected(object sender, RoutedEventArgs e) //Міняє тему
         {
             if (e.OriginalSource is Button button)
             {
