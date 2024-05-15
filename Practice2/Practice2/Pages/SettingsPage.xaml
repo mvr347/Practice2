@@ -1,0 +1,119 @@
+﻿<Page
+    x:Class="Practice2.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:Practice2.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SettingsPage"
+    d:DesignHeight="377"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Border
+            Margin="10,10,10,10"
+            Background="{DynamicResource BorderBrush}"
+            CornerRadius="15">
+            <hc:TabControl
+                Margin="10,10,10,10"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}">
+                <hc:TabItem Header="{DynamicResource settings_text1}" IsSelected="True">
+                    <hc:SimpleStackPanel>
+                        <hc:TextBox
+                            Width="199"
+                            Height="30"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            IsReadOnly="True"
+                            SelectionBrush="{x:Null}"
+                            SelectionTextBrush="{x:Null}"
+                            Text="{DynamicResource settings_text3}" />
+                        <ComboBox
+                            x:Name="ComboBoxLanguageChange"
+                            Width="199"
+                            Height="30"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left" />
+                        <hc:TextBox
+                            Width="199"
+                            Margin="0,0,559,0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            IsReadOnly="True"
+                            SelectionBrush="{x:Null}"
+                            SelectionTextBrush="{x:Null}"
+                            Text="{DynamicResource settings_text4}" />
+                        <ToggleButton
+                            x:Name="ToggleButtonTheme"
+                            Width="42"
+                            Margin="18,0,0,0"
+                            HorizontalAlignment="Left"
+                            Checked="ToggleButtonChanged"
+                            Style="{DynamicResource ToggleButtonSwitch}"
+                            Unchecked="ToggleButtonChanged" />
+                    </hc:SimpleStackPanel>
+                </hc:TabItem>
+                <hc:TabItem Header="{DynamicResource settings_text2}">
+                    <hc:SimpleStackPanel>
+                        <!--<Expander // На курсач
+                            Width="199"
+                            Margin="0,5,557,0"
+                            HorizontalAlignment="Left"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            Header="{DynamicResource settings_text5}">
+                            <Border Background="{DynamicResource SecondaryRegionBrush}">
+                                <StackPanel>
+                                    <TextBox
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        IsReadOnly="True"
+                                        SelectionBrush="{x:Null}"
+                                        SelectionTextBrush="{x:Null}"
+                                        Text="{DynamicResource settings_text6}" />
+                                    <hc:PasswordBox x:Name="PasswordBoxCurrentPassword" ShowEyeButton="True" />
+                                    <TextBox
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        IsReadOnly="True"
+                                        SelectionBrush="{x:Null}"
+                                        SelectionTextBrush="{x:Null}"
+                                        Text="{DynamicResource settings_text7}" />
+                                    <hc:PasswordBox x:Name="PasswordBoxNewPassword" ShowEyeButton="True" />
+                                    <Button
+                                        Margin="5"
+                                        VerticalAlignment="Top"
+                                        Click="Button_Click"
+                                        Content="{DynamicResource settings_text5}" />
+                                </StackPanel>
+                            </Border>
+                        </Expander>-->
+                        <Button
+                            x:Name="ButtonDelete"
+                            Width="199"
+                            Margin="0,10"
+                            HorizontalAlignment="Left"
+                            Click="ButtonDeleteClick"
+                            Content="{DynamicResource settings_text8}"
+                            Style="{DynamicResource ButtonDanger}" />
+                        <Button
+                            x:Name="ButtonWipeAllUsers"
+                            Width="199"
+                            Margin="0,10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Click="ButtonWipeAllUsersClick"
+                            Content="{DynamicResource settings_text9}"
+                            Style="{DynamicResource ButtonDanger}"
+                            Visibility="Collapsed" />
+                    </hc:SimpleStackPanel>
+                </hc:TabItem>
+            </hc:TabControl>
+        </Border>
+    </Grid>
+</Page>

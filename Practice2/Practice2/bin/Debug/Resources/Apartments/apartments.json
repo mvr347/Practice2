@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "28801ce4-47db-4bb7-bd72-3e686ec2f001",
+    "Name": "Apartament 1-2",
+    "Floor": 1,
+    "Owner": "None",
+    "Area": 45,
+    "PublicUtilities": 2527
+  },
+  {
+    "Id": "784f7a5c-fdbf-475a-acbb-19a4e4008fa1",
+    "Name": "Apartament 1-3",
+    "Floor": 1,
+    "Owner": "None",
+    "Area": 58,
+    "PublicUtilities": 4739
+  },
+  {
+    "Id": "9d6f4a0e-e537-48d3-8ad2-d8b06b13844f",
+    "Name": "Apartament 1-4",
+    "Floor": 1,
+    "Owner": "None",
+    "Area": 34,
+    "PublicUtilities": 5906
+  }
+]
